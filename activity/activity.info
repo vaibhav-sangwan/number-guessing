@@ -1,0 +1,6 @@
+[Activity]
+name = Number Guessing
+bundle_id = org.sugarlabs.NumberGuessing
+exec = sugar-activity3 activity.NumberGuessingActivity
+icon = activity-numberguessing
+activity_version = 1
