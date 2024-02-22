@@ -10,8 +10,8 @@ import pygame
 import random
 
 pygame.init()
-GAME_FONT = pygame.font.Font(None, 18)
-WIN_FONT = pygame.font.Font(None, 42)
+GAME_FONT = pygame.font.SysFont('ubuntumono', 18, bold=True)
+WIN_FONT = pygame.font.SysFont('ubuntumono', 42, bold=True)
 
 class NumberGuessing:
     def __init__(self):
@@ -21,11 +21,12 @@ class NumberGuessing:
         self.reqBit = 0
         self.res = 0
         self.buttons = []
-        self.yes_button = Button("Yes", (180, 470))
-        self.no_button = Button("No", (250, 470))
-        self.reset_button = Button("Reset", (320, 470))
+        self.yes_button = Button("Yes", (300, 570))
+        self.no_button = Button("No", (400, 570))
+        self.reset_button = Button("Reset", (500, 570))
         self.buttons = [self.yes_button, self.no_button, self.reset_button]
-    
+        self.orig_screen = pygame.Surface((800, 600))
+
     def getNumbers(self, n, target):
         res = []
         for i in range(1, 100):
@@ -41,12 +42,12 @@ class NumberGuessing:
         return res
 
     def draw(self):
-        self.screen.fill("white")
+        self.orig_screen.fill("white")
         
         if self.reqBit >= 7:
             res_text = WIN_FONT.render("Your guess was " + (str)(self.res), False, "black")
-            res_rect = res_text.get_rect(center = (250, 250))
-            self.screen.blit(res_text, res_rect)
+            res_rect = res_text.get_rect(center = (400, 300))
+            self.orig_screen.blit(res_text, res_rect)
 
         else:
             self.target = random.randint(0, 1)
@@ -54,11 +55,15 @@ class NumberGuessing:
             cells = self.getCells(nums)
             for num in cells.keys():
                 text = GAME_FONT.render((str)(num), False, "black")
-                text_rect = text.get_rect(center = (cells[num][0] * 50  + 25, cells[num][1] * 45 + 22))
-                self.screen.blit(text, text_rect)
+                text_rect = text.get_rect(center = (cells[num][0] * 80  + 40, cells[num][1] * 55 + 27))
+                self.orig_screen.blit(text, text_rect)
         
         for button in self.buttons:
-            button.draw(self.screen)
+            button.draw(self.orig_screen)
+        
+        resized_screen = pygame.transform.scale(self.orig_screen, (self.screen.get_width(), self.screen.get_height()))
+        self.screen.blit(resized_screen, (0, 0))
+
 
     def input_received(self, present):
         val = 1 ^ (present ^ self.target)
@@ -82,14 +87,15 @@ class NumberGuessing:
                     self.is_running = False
                 elif event.type == pygame.VIDEORESIZE:
                     self.screen = pygame.display.set_mode((event.size[0], event.size[1]),pygame.RESIZABLE)
+                    self.draw()
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if self.reset_button.check_clicked(pygame.mouse.get_pos()):
+                    if self.reset_button.check_clicked(pygame.mouse.get_pos(), self.screen):
                         self.reqBit = 0
                         self.res = 0
                         self.draw()
-                    elif self.yes_button.check_clicked(pygame.mouse.get_pos()) and self.reqBit < 7:
+                    elif self.yes_button.check_clicked(pygame.mouse.get_pos(), self.screen) and self.reqBit < 7:
                         self.input_received(1)
-                    elif self.no_button.check_clicked(pygame.mouse.get_pos()) and self.reqBit < 7:
+                    elif self.no_button.check_clicked(pygame.mouse.get_pos(), self.screen) and self.reqBit < 7:
                         self.input_received(0)
             
             pygame.display.update()
@@ -98,6 +104,6 @@ class NumberGuessing:
 
 if __name__ == "__main__":
     g = NumberGuessing()
-    GAME_SIZE = (500, 500)
+    GAME_SIZE = (800, 600)
     g.screen = pygame.display.set_mode(GAME_SIZE, pygame.RESIZABLE)
     g.run()
