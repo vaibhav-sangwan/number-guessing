@@ -1,6 +1,8 @@
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+from button import Button
+
 
 from sugar3.graphics.style import GRID_CELL_SIZE
 
@@ -18,6 +20,11 @@ class NumberGuessing:
         self.clock = pygame.time.Clock()
         self.reqBit = 0
         self.res = 0
+        self.buttons = []
+        self.yes_button = Button("Yes", (180, 470))
+        self.no_button = Button("No", (250, 470))
+        self.reset_button = Button("Reset", (320, 470))
+        self.buttons = [self.yes_button, self.no_button, self.reset_button]
     
     def getNumbers(self, n, target):
         res = []
@@ -47,8 +54,11 @@ class NumberGuessing:
             cells = self.getCells(nums)
             for num in cells.keys():
                 text = GAME_FONT.render((str)(num), False, "black")
-                text_rect = text.get_rect(center = (cells[num][0] * 50  + 25, cells[num][1] * 50 + 25))
+                text_rect = text.get_rect(center = (cells[num][0] * 50  + 25, cells[num][1] * 45 + 22))
                 self.screen.blit(text, text_rect)
+        
+        for button in self.buttons:
+            button.draw(self.screen)
 
     def input_received(self, present):
         val = 1 ^ (present ^ self.target)
@@ -72,14 +82,14 @@ class NumberGuessing:
                     self.is_running = False
                 elif event.type == pygame.VIDEORESIZE:
                     self.screen = pygame.display.set_mode((event.size[0], event.size[1]),pygame.RESIZABLE)
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_r:
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if self.reset_button.check_clicked(pygame.mouse.get_pos()):
                         self.reqBit = 0
                         self.res = 0
                         self.draw()
-                    elif event.key == pygame.K_y and self.reqBit < 7:
+                    elif self.yes_button.check_clicked(pygame.mouse.get_pos()) and self.reqBit < 7:
                         self.input_received(1)
-                    elif event.key == pygame.K_n and self.reqBit < 7:
+                    elif self.no_button.check_clicked(pygame.mouse.get_pos()) and self.reqBit < 7:
                         self.input_received(0)
             
             pygame.display.update()
