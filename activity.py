@@ -13,12 +13,18 @@ from sugar3.activity.widgets import StopButton, ActivityToolbarButton
 import sugargame.canvas
 import main
 
+DESCRIPTION = """Number Guessing is a mathematical game. You have to think of a number lying between 1 and 100 (both inclusive).
+After that, you need to press on "Yes" or "No" depending on whether the number you thought of is present on the screen or not.
+Your number will be guessed correctly after you repeat this task 7 times. You can press on "Reset" at any point to think of another number.
+"""
+
 class NumberGuessingActivity(Activity):
 
     def __init__(self, handle):
         Activity.__init__(self, handle)
 
         self.game = main.NumberGuessing()
+        self.metadata['description'] = DESCRIPTION
         
         self.build_toolbar()
         self._pygamecanvas = sugargame.canvas.PygameCanvas(self, main=self.game.run, modules=[pygame.display])

@@ -45,7 +45,10 @@ class NumberGuessing:
         self.orig_screen.fill("white")
         
         if self.reqBit >= 7:
-            res_text = WIN_FONT.render("Your guess was " + (str)(self.res), False, "black")
+            if self.res <= 100 and self.res >= 1:
+                res_text = WIN_FONT.render("Your guess was " + (str)(self.res), False, "black")
+            else:
+                res_text = WIN_FONT.render("Your guess doesn't lie between 1-100", False, "black")
             res_rect = res_text.get_rect(center = (400, 300))
             self.orig_screen.blit(res_text, res_rect)
 
