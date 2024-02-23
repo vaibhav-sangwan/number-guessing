@@ -1,26 +1,29 @@
-<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' [
-	<!ENTITY stroke_color "#010101">
-	<!ENTITY fill_color "#FFFFFF">
-]>
-<svg enable-background="new 0 0 55 55" height="55px" version="1.1" viewBox="0 0 55 55" width="55px" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
-  <g display="block" id="activity-helloworld">
-    <path d="M9.263,48.396c0.682,1.152,6.027,0.059,8.246-1.463   c2.102-1.432,3.207-2.596,4.336-2.596c1.133,0,12.54,0.92,20.935-5.715c7.225-5.707,9.773-13.788,4.52-21.437   c-5.252-7.644-13.832-9.08-20.878-8.56C16.806,9.342,4.224,16.91,4.677,28.313c0.264,6.711,3.357,9.143,4.922,10.703   c1.562,1.566,4.545,1.566,2.992,5.588C11.981,46.183,8.753,47.522,9.263,48.396z" display="inline" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5"/>
-  </g>
-  <circle cx="27.375" cy="27.5" r="19.903"
-     transform="matrix(0.6,0,0,0.6,10.95,11)"
-     id="circle4" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" display="inline" />
-  <g transform="matrix(0.6,0,0,0.6,10.95,11)" id="g6" style="display:inline">
-    <path d="m 27.376,7.598 c 0,0 -11.205,8.394 -11.205,19.976 0,11.583 11.205,19.829 11.205,19.829"
-       id="path8" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" />
-    <path d="m 27.376,7.598 c 0,0 11.066,9.141 11.066,19.976 0,10.839 -11.066,19.829 -11.066,19.829"
-       id="path10" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" />
-    <line x1="27.375999" x2="27.375999" y1="7.598" y2="47.402"
-       id="line12" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" />
-    <line x1="27.375999" x2="27.375999" y1="7.598" y2="47.402"
-       id="line14" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" />
-    <line x1="27.375999" x2="27.375999" y1="7.598" y2="47.402"
-       id="line16" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" />
-    <line x1="7.4720001" x2="47.278" y1="27.5" y2="27.5"
-       id="line18" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3.5" />
+<?xml version="1.0" ?><!-- Created with Inkscape (http://www.inkscape.org/) --><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' [
+	<!ENTITY stroke_color "#666666">
+	<!ENTITY fill_color "#ffffff">
+]><svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" width="55" height="55" id="svg4502" sodipodi:version="0.32" inkscape:version="0.45.1" version="1.0" sodipodi:docname="Icon_template.inkscape.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs id="defs4504">
+    <inkscape:path-effect effect="fillet_chamfer" id="path-effect61" is_visible="true" lpeversion="1" nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,2.7029647,0,1 @ F,0,0,1,0,2.0003907,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,4.5332031,0,1 @ F,0,0,1,0,3.2121094,0,1 @ F,0,0,1,0,3.671289,0,1 @ F,0,0,1,0,0.59409781,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 | F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,1.846289,0,1 @ F,0,0,1,0,1.087891,0,1 @ F,0,0,1,0,0.7082031,0,1 @ F,0,0,1,0,1.3106612,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0.74628897,0,1 @ F,0,0,1,0,0.84392485,0,1 @ F,0,0,1,0,0,0,1" radius="0" unit="px" method="auto" mode="F" chamfer_steps="1" flexible="false" use_knot_distance="true" apply_no_radius="true" apply_with_radius="true" only_selected="false" hide_knots="false"/>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="3.959798" inkscape:cx="30.611899" inkscape:cy="22.993148" inkscape:document-units="px" inkscape:current-layer="_x5F_swatches" gridspacingx="15px" gridspacingy="15px" width="55px" height="55px" inkscape:window-width="701" inkscape:window-height="581" inkscape:window-x="285" inkscape:window-y="68" inkscape:showpageshadow="2" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1"/>
+  <metadata id="metadata4507">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  
+  
+  <g inkscape:groupmode="layer" id="layer4" inkscape:label="icon" style="display:inline" transform="translate(0,55)">
+    <rect style="display:none;opacity:1;fill:&fill_color;;fill-opacity:1;stroke:&fill_color;;stroke-width:3.24742;stroke-dasharray:none;stroke-opacity:1" id="rect1" width="41.752579" height="41.752579" x="6.6237106" y="-47.687313" ry="0"/>
+    <rect style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:1.6;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" id="rect61" width="55" height="55" x="0" y="-55" inkscape:label="rect61" inkscape:export-filename="..\Desktop\shared folder\activity-numberguessing.svg" inkscape:export-xdpi="96" inkscape:export-ydpi="96"/>
+    <g id="rect2">
+      <path style="color:#000000;fill:&fill_color;;-inkscape-stroke:none" d="m 24.144531,-47.6875 c -6.999546,0 -12.634765,5.635219 -12.634765,12.634766 v 0.318359 l 7.291015,0.0332 v -0.746094 c 0,-2.946002 2.370402,-5.318359 5.316407,-5.318359 h 6.36914 c 2.946003,0 5.31836,2.372357 5.31836,5.318359 v 1.38086 c 0,2.946002 -2.372357,5.318359 -5.31836,5.318359 h -0.148437 -2.076172 -4.044922 v 12.457031 h 6.121094 v -5.33789 h 0.517578 c 6.999546,0 12.634765,-5.635219 12.634765,-12.634766 v -0.789062 c 0,-6.999547 -5.635219,-12.634766 -12.634765,-12.634766 z" id="path60"/>
+      <path style="color:#000000;fill:&stroke_color;;-inkscape-stroke:none" d="m 24.144531,-49.4375 c -7.938802,0 -14.3847654,6.445963 -14.3847654,14.384766 a 2.4140232,2.4140232 37.483204 0 0 2.7029374,2.072778 l 6.087708,0.02755 a 1.9913593,1.9913593 135.12963 0 0 2.00037,-1.991339 v -0.503516 c 0,-2.00728 1.559896,-3.568359 3.566406,-3.568359 h 6.369141 c 2.006508,0 3.568359,1.561853 3.568359,3.568359 v 1.38086 c 0,2.006506 -1.561851,3.568359 -3.568359,3.568359 H 30.337891 28.261719 27 a 4.5332031,4.5332031 135 0 0 -4.533203,4.533203 v 8.211719 a 3.2121094,3.2121094 45 0 0 3.212109,3.212109 h 2.737696 a 3.671289,3.671289 135 0 0 3.671289,-3.671289 v -1.197503 c 0,-0.328111 0.265237,-0.615761 0.590684,-0.657314 7.070453,-0.902754 12.561659,-6.882449 12.561659,-14.19655 v -0.789062 c 0,-7.938803 -6.445963,-14.384766 -14.384765,-14.384766 z m 0,3.5 h 6.710938 c 6.060276,0 10.884765,4.824489 10.884765,10.884766 v 0.789062 c 0,6.060277 -4.824489,10.884766 -10.884765,10.884766 H 30.43418 a 1.846289,1.846289 135 0 0 -1.846289,1.846289 v 2.40371 A 1.087891,1.087891 135 0 1 27.5,-18.041016 h -0.825 a 0.7082031,0.7082031 45 0 1 -0.708203,-0.708203 v -6.938167 a 1.3106612,1.3106612 135 0 1 1.310661,-1.310661 h 0.984261 2.076172 0.148437 c 3.885492,0 7.06836,-3.182868 7.068359,-7.068359 v -1.38086 c 0,-3.885491 -3.182867,-7.068359 -7.068359,-7.068359 h -6.369141 c -3.269627,0 -5.932097,2.290876 -6.712467,5.325679 -0.1026,0.399005 -0.482983,0.729555 -0.895143,0.72782 l -2.122691,-0.0089 c -0.466082,-0.002 -0.796929,-0.379076 -0.701529,-0.835189 1.031637,-4.932319 5.196725,-8.631255 10.459174,-8.631255 z" id="path61" inkscape:path-effect="#path-effect61" inkscape:original-d="m 24.144531,-49.4375 c -7.938802,0 -14.3847654,6.445963 -14.3847654,14.384766 v 2.060547 l 10.7910154,0.04883 v -2.503907 c 0,-2.00728 1.559896,-3.568359 3.566406,-3.568359 h 6.369141 c 2.006508,0 3.568359,1.561853 3.568359,3.568359 v 1.38086 c 0,2.006506 -1.561851,3.568359 -3.568359,3.568359 h -0.148437 -2.076172 -5.794922 v 15.957031 h 9.621094 v -5.46289 c 7.352933,-0.635953 13.152343,-6.743209 13.152343,-14.259766 v -0.789062 c 0,-7.938803 -6.445963,-14.384766 -14.384765,-14.384766 z m 0,3.5 h 6.710938 c 6.060276,0 10.884765,4.824489 10.884765,10.884766 v 0.789062 c 0,6.060277 -4.824489,10.884766 -10.884765,10.884766 h -2.267578 v 5.33789 h -2.621094 v -8.957031 h 2.294922 2.076172 0.148437 c 3.885492,0 7.06836,-3.182868 7.068359,-7.068359 v -1.38086 c 0,-3.885491 -3.182867,-7.068359 -7.068359,-7.068359 h -6.369141 c -3.527424,0 -6.348173,2.66637 -6.861328,6.056641 l -3.71289,-0.01563 c 0.715389,-5.342273 5.047245,-9.462891 10.601562,-9.462891 z"/>
+    </g>
+    <rect style="display:none;fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:3.5;stroke-dasharray:none;stroke-opacity:1" id="rect4" width="7.2910204" height="0.098701477" x="11.509338" y="-34.756584" ry="0.60000002"/>
+    <circle style="display:inline;opacity:1;fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:1.6;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" id="path7" cx="27.277458" cy="-9.1099253" r="3" inkscape:label="path7"/>
   </g>
 </svg>
