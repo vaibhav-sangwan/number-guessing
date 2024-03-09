@@ -3,7 +3,7 @@ What is this?
 
 Number Guessing is a mathematical game for the Sugar desktop.
 
-![alt text](https://github.com/vaibhav-sangwan/number-guessing/blob/main/screenshots/gameplay.png?raw=true)
+![alt text](https://github.com/vaibhav-sangwan-02/number-guessing/blob/main/screenshots/gameplay.png?raw=true)
 
 You have to think of a number lying between 1 and 100 (both inclusive). After that, you need to answer "Yes" or "No" depending on whether the number you thought of is present on the screen or not. Your number will be guessed correctly after you repeat this task 7 times.
 
