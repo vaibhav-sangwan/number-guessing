@@ -20,6 +20,8 @@
 # Contact information:
 # Vaibhav Sangwan    sangwanvaibhav02@gmail.com
 
+from gettext import gettext as _
+
 import gi
 
 gi.require_version("Gtk", "3.0")
@@ -37,14 +39,14 @@ WIN_FONT = pygame.font.SysFont("ubuntumono", 42, bold=True)
 class NumberGuessing:
     def __init__(self):
         pygame.display.init()
-        pygame.display.set_caption("Number Guessing")
+        pygame.display.set_caption(_("Number Guessing"))
         self.clock = pygame.time.Clock()
         self.reqBit = 0
         self.res = 0
         self.buttons = []
-        self.yes_button = Button("Yes", (300, 570))
-        self.no_button = Button("No", (400, 570))
-        self.reset_button = Button("Reset", (500, 570))
+        self.yes_button = Button(_("Yes"), (300, 570))
+        self.no_button = Button(_("No"), (400, 570))
+        self.reset_button = Button(_("Reset"), (500, 570))
         self.buttons = [self.yes_button, self.no_button, self.reset_button]
         self.orig_screen = pygame.Surface((800, 600))
 
@@ -68,11 +70,11 @@ class NumberGuessing:
         if self.reqBit >= 7:
             if self.res <= 100 and self.res >= 1:
                 res_text = WIN_FONT.render(
-                    "Your guess was " + (str)(self.res), False, "black"
+                    _("Your guess was ") + (str)(self.res), False, "black"
                 )
             else:
                 res_text = WIN_FONT.render(
-                    "Your guess doesn't lie between 1-100", False, "black"
+                    _("Your guess doesn't lie between 1-100"), False, "black"
                 )
             res_rect = res_text.get_rect(center=(400, 300))
             self.orig_screen.blit(res_text, res_rect)
