@@ -33,6 +33,9 @@ class CompGuess:
         self.screen = game.screen
         self.gameStateManager = game.gameStateManager
 
+        self.bg = pygame.image.load("./assets/background.png")
+        self.bg_rect = self.bg.get_rect(center = (self.screen.get_width()/2, self.screen.get_height()/2))
+
         self.buttons = []
         self.yes_button = Button(_("Yes"), (235, 320))
         self.no_button = Button(_("No"), (320, 320))
@@ -63,7 +66,7 @@ class CompGuess:
         return res
 
     def render(self):
-        self.screen.fill("white")
+        self.screen.blit(self.bg, self.bg_rect)
 
         if self.reqBit >= 7:
             if self.res <= 100 and self.res >= 1:

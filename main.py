@@ -33,6 +33,7 @@ pygame.init()
 from utils import Utils
 from gamestatemanager import GameStateManager
 from states.compguess import CompGuess
+from states.mainmenu import MainMenu
 
 BASE_RES = (640, 360)
 FPS = 30
@@ -44,7 +45,7 @@ class NumberGuessing:
         self.clock = pygame.time.Clock()
 
     def fill_bg(self):
-        self.render_screen.fill("white")
+        self.render_screen.fill("#3cdafd")
 
     def run(self):
         self.screen = pygame.Surface(BASE_RES)
@@ -60,8 +61,9 @@ class NumberGuessing:
         self.scaled_screen_rect.center = (screen_width / 2, screen_height / 2)
         Utils.scaled_screen_rect = self.scaled_screen_rect
 
-        self.gameStateManager = GameStateManager("comp-guess")
+        self.gameStateManager = GameStateManager("main-menu")
         self.states = {}
+        self.states["main-menu"] = MainMenu(self)
         self.states["comp-guess"] = CompGuess(self)
 
         self.is_running = True
