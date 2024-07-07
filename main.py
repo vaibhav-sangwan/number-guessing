@@ -49,7 +49,7 @@ class NumberGuessing:
 
     def run(self):
         self.screen = pygame.Surface(BASE_RES)
-        self.render_screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        self.render_screen = pygame.display.set_mode((0, 0))
         screen_width = self.render_screen.get_width()
         screen_height = self.render_screen.get_height()
         x_ratio = screen_width / BASE_RES[0]

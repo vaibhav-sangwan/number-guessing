@@ -25,15 +25,20 @@ import pygame
 from utils import Utils
 
 pygame.font.init()
-font_m = pygame.font.Font("./fonts/m04b.ttf", 8)
+font_m = pygame.font.Font("./fonts/3Dventure.ttf", 16)
+
+import random
 
 
 class Button:
     def __init__(self, text, coord):
         self.rect = pygame.Rect(0, 0, 70, 30)
         self.rect.center = coord
+        self.hover_rect = pygame.Rect(0, 0, 76, 36)
+        self.hover_rect.center = coord
+        self.hover_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
-        self.text = font_m.render(text, False, "red")
+        self.text = font_m.render(text, False, "#145463")
         self.text_rect = self.text.get_rect(center=(self.rect.center))
 
     def check_press(self):
@@ -42,5 +47,9 @@ class Button:
         return False
 
     def draw(self, screen):
-        pygame.draw.rect(screen, (255, 255, 0), self.rect)
+        pygame.draw.rect(screen, "#145463", self.rect, 1, 5)
+        if self.rect.collidepoint(Utils.norm_cursor_pos()):
+            pygame.draw.rect(screen, self.hover_color, self.hover_rect, 2, 7)
+        else:
+            self.hover_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         screen.blit(self.text, self.text_rect)

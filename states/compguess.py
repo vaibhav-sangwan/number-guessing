@@ -41,6 +41,8 @@ class CompGuess:
         self.no_button = Button(_("No"), (320, 320))
         self.reset_button = Button(_("Reset"), (405, 320))
         self.buttons = [self.yes_button, self.no_button, self.reset_button]
+
+        self.start_button = Button(_("Start"), (320, 200))
         
         self.reset()
     
@@ -50,6 +52,7 @@ class CompGuess:
         self.target = random.randint(0, 1)
         nums = self.getNumbers(self.reqBit, self.target)
         self.cells = self.getCells(nums)
+        self.started = False
 
     def getNumbers(self, n, target):
         res = []
@@ -68,25 +71,38 @@ class CompGuess:
     def render(self):
         self.screen.blit(self.bg, self.bg_rect)
 
+        if not self.started:
+            start_text = font_s.render(_("Think of a number between 0 to 99"), False, "#145463")
+            start_text_rect = start_text.get_rect(center = (320, 160))
+
+            self.screen.blit(start_text, start_text_rect)
+            self.start_button.draw(self.screen)
+            return
+
         if self.reqBit >= 7:
-            if self.res <= 100 and self.res >= 1:
+            if self.res < 100 and self.res >= 0:
                 res_text = font_s.render(
-                    _("Your guess was ") + (str)(self.res), False, "black"
+                    _("You thought of ") + (str)(self.res), False, "#145463"
                 )
             else:
                 res_text = font_s.render(
-                    _("Your guess doesn't lie between 1-100"), False, "black"
+                    _("The number you thought of does not lie in range 0-99"), False, "#145463"
                 )
             res_rect = res_text.get_rect(center=(self.screen.get_width()/2, self.screen.get_height()/2))
             self.screen.blit(res_text, res_rect)
 
         else:
             for num in self.cells.keys():
-                text = font_s.render((str)(num), False, "black")
+                text = font_s.render((str)(num), False, "#145463")
                 text_rect = text.get_rect(
-                    center=(self.cells[num][0] * 64 + 32, self.cells[num][1] * 28 + 14)
+                    center=(self.cells[num][0] * 64 + 32, self.cells[num][1] * 26 + 13)
                 )
                 self.screen.blit(text, text_rect)
+
+        text = font_s.render("Is the number you thought of present on screen?", False, "#145463")
+        text_rect = text.get_rect(center = (320, 290))
+        if self.reqBit < 7:
+            self.screen.blit(text, text_rect)
 
         for button in self.buttons:
             button.draw(self.screen)
@@ -102,12 +118,16 @@ class CompGuess:
 
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if self.reset_button.check_press():
-                self.reset()
-            elif (self.yes_button.check_press() and self.reqBit < 7):
-                self.input_received(1)
-            elif (self.no_button.check_press() and self.reqBit < 7):
-                self.input_received(0)
+            if self.started:
+                if self.reset_button.check_press():
+                    self.reset()
+                elif (self.yes_button.check_press() and self.reqBit < 7):
+                    self.input_received(1)
+                elif (self.no_button.check_press() and self.reqBit < 7):
+                    self.input_received(0)
+            else:
+                if self.start_button.check_press():
+                    self.started = True
 
     def run(self):
         self.render()
