@@ -29,7 +29,7 @@ pygame.font.init()
 font_m = pygame.font.Font("./fonts/m04b.ttf", 8)
 far_color = (255, 0, 0)
 med_color = (255, 255, 0)
-close_color = (0, 190, 0)
+close_color = (0, 150, 0)
 
 
 class NumberBox:
@@ -50,6 +50,7 @@ class NumberBox:
         self.set_fill_color(target)
         
         self.particles = None
+        self.target = target
     
     def set_fill_color(self, target):
         curr_dist = abs(self.val - target)
@@ -74,11 +75,14 @@ class NumberBox:
         y = m*(x-x1) + y1
         return y
 
+    def fill(self):
+        self.filled = True
+        self.particles = Particles(self.fill_color, self.rect.center)
+
     def check_press(self):
         if self.rect.collidepoint(Utils.norm_cursor_pos()):
             if not self.filled:
-                self.filled = True
-                self.particles = Particles(self.fill_color, self.rect.center)
+                self.fill()
             return True
         return False
 
@@ -93,3 +97,5 @@ class NumberBox:
             screen.blit(self.filled_text, self.text_rect)
             if not self.particles.done_emitting():
                 self.particles.emit(screen)
+            if self.val == self.target:
+                pygame.draw.rect(screen, "white", self.hover_rect, 2, 4)

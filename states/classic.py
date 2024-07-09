@@ -24,6 +24,10 @@ import pygame
 import random
 
 from components.numberbox import NumberBox
+from components.button import Button
+from gettext import gettext as _
+
+font_m = pygame.font.Font("./fonts/3Dventure.ttf", 16)
 
 class Classic:
     def __init__(self, game):
@@ -33,9 +37,16 @@ class Classic:
 
         self.bg = pygame.image.load("./assets/background.png")
         self.bg_rect = self.bg.get_rect(center = (self.screen.get_width()/2, self.screen.get_height()/2))
-        
+    
+        self.reset_button = Button(_("Reset"), (320, 330))
+        self.reset()
+    
+    def reset(self):
         self.target = random.randint(0, 99)
         self.generate_numbers()
+        self.layer = 4
+        self.last_burst = pygame.time.get_ticks()
+        self.incorrect = 0
     
     def generate_numbers(self):
         self.num_boxes = []
@@ -43,7 +54,7 @@ class Classic:
             row = num // 10
             col = num % 10
             x = col * 64 + 32
-            y = row * 26 + 13
+            y = 40 + (row * 26) + 13
             num_box = NumberBox(str(num), (x, y), self.target)
             self.num_boxes.append(num_box)
             if num == self.target:
@@ -52,16 +63,38 @@ class Classic:
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             for box in self.num_boxes:
-                box.check_press()
+                if (not box.filled) and box.check_press() and box.val != self.target:
+                    self.incorrect += 1
+            if self.reset_button.check_press():
+                self.reset()
     
     def render(self):
         self.screen.blit(self.bg, self.bg_rect)
         for box in self.num_boxes:
             box.draw(self.screen)
+        self.reset_button.draw(self.screen)
+
+        inc_text = font_m.render(_("INCORRECT: ") + (str)(self.incorrect), False, "#145463")
+        inc_text_rect = inc_text.get_rect(center = (320, 20))
+        self.screen.blit(inc_text, inc_text_rect)
     
     def run(self):
-        if self.target_box.filled:
-            pass
+        if self.target_box.filled and self.layer >= 0:
+            curr_tick = pygame.time.get_ticks()
+            if curr_tick - self.last_burst >= 200:
+                self.last_burst = curr_tick
+               
+                for i in range(100):
+                    row = i // 10
+                    col = i % 10
+                    if any([
+                        row == self.layer,
+                        row == 9 - self.layer,
+                        col == self.layer,
+                        col == 9 - self.layer
+                    ]):
+                        self.num_boxes[i].fill()
+                self.layer -= 1
 
         self.render()
         
