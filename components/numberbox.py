@@ -23,6 +23,7 @@
 import pygame
 
 from utils import Utils
+from components.particles import Particles
 
 pygame.font.init()
 font_m = pygame.font.Font("./fonts/m04b.ttf", 8)
@@ -47,6 +48,8 @@ class NumberBox:
         self.filled = False
         self.val = (int)(text)
         self.set_fill_color(target)
+        
+        self.particles = None
     
     def set_fill_color(self, target):
         curr_dist = abs(self.val - target)
@@ -73,7 +76,9 @@ class NumberBox:
 
     def check_press(self):
         if self.rect.collidepoint(Utils.norm_cursor_pos()):
-            self.filled = True
+            if not self.filled:
+                self.filled = True
+                self.particles = Particles(self.fill_color, self.rect.center)
             return True
         return False
 
@@ -86,3 +91,5 @@ class NumberBox:
         else:
             pygame.draw.rect(screen, self.fill_color, self.rect, 0, 2)
             screen.blit(self.filled_text, self.text_rect)
+            if not self.particles.done_emitting():
+                self.particles.emit(screen)

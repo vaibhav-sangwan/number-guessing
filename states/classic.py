@@ -35,7 +35,6 @@ class Classic:
         self.bg_rect = self.bg.get_rect(center = (self.screen.get_width()/2, self.screen.get_height()/2))
         
         self.target = random.randint(0, 99)
-        print(self.target)
         self.generate_numbers()
     
     def generate_numbers(self):
