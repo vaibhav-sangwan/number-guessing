@@ -23,6 +23,7 @@
 import random
 import pygame
 from components.button import Button
+from components.homebutton import HomeButton
 from gettext import gettext as _
 
 font_s = pygame.font.Font("./fonts/m04b.ttf", 8)
@@ -43,7 +44,7 @@ class CompGuess:
         self.buttons = [self.yes_button, self.no_button, self.reset_button]
 
         self.start_button = Button(_("Start"), (320, 200))
-        
+        self.home_button = HomeButton(30, 330, self.gameStateManager)
         self.reset()
     
     def reset(self):
@@ -70,6 +71,7 @@ class CompGuess:
 
     def render(self):
         self.screen.blit(self.bg, self.bg_rect)
+        self.home_button.draw(self.screen)
 
         if not self.started:
             start_text = font_s.render(_("Think of a number between 0 to 99"), False, "#145463")
@@ -128,6 +130,7 @@ class CompGuess:
             else:
                 if self.start_button.check_press():
                     self.started = True
+            self.home_button.check_press()
 
     def run(self):
         self.render()

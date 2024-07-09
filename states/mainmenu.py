@@ -46,6 +46,7 @@ class MainMenu:
             for button in self.buttons:
                 if button.check_press():
                     self.gameStateManager.set_state(button.targetState)
+                    self.game.states[button.targetState].reset()
 
     def render(self):
         self.screen.blit(self.bg, self.bg_rect)

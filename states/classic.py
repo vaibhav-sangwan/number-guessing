@@ -25,6 +25,7 @@ import random
 
 from components.numberbox import NumberBox
 from components.button import Button
+from components.homebutton import HomeButton
 from gettext import gettext as _
 
 font_m = pygame.font.Font("./fonts/3Dventure.ttf", 16)
@@ -37,6 +38,8 @@ class Classic:
 
         self.bg = pygame.image.load("./assets/background.png")
         self.bg_rect = self.bg.get_rect(center = (self.screen.get_width()/2, self.screen.get_height()/2))
+
+        self.home_button = HomeButton(30, 330, self.gameStateManager)
     
         self.reset_button = Button(_("Reset"), (320, 330))
         self.reset()
@@ -67,12 +70,14 @@ class Classic:
                     self.incorrect += 1
             if self.reset_button.check_press():
                 self.reset()
+            self.home_button.check_press()
     
     def render(self):
         self.screen.blit(self.bg, self.bg_rect)
         for box in self.num_boxes:
             box.draw(self.screen)
         self.reset_button.draw(self.screen)
+        self.home_button.draw(self.screen)
 
         inc_text = font_m.render(_("INCORRECT: ") + (str)(self.incorrect), False, "#145463")
         inc_text_rect = inc_text.get_rect(center = (320, 20))
