@@ -39,7 +39,7 @@ class MainMenu:
         self.buttons = pygame.sprite.Group()
         self.buttons.add(MenuButton(320, 170, "CLASSIC", "classic"))
         self.buttons.add(MenuButton(320, 230, "REV MODE", "comp-guess"))
-        self.buttons.add(MenuButton(320, 290, "HELP", None))
+        self.buttons.add(MenuButton(320, 290, "HELP", "help-menu"))
     
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:

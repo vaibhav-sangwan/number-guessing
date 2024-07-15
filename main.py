@@ -35,6 +35,7 @@ from gamestatemanager import GameStateManager
 from states.compguess import CompGuess
 from states.mainmenu import MainMenu
 from states.classic import Classic
+from states.helpmenu import HelpMenu
 
 BASE_RES = (640, 360)
 FPS = 30
@@ -67,6 +68,7 @@ class NumberGuessing:
         self.states["main-menu"] = MainMenu(self)
         self.states["comp-guess"] = CompGuess(self)
         self.states["classic"] = Classic(self)
+        self.states["help-menu"] = HelpMenu(self)
 
         self.is_running = True
         while self.is_running:
