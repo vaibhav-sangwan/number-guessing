@@ -36,7 +36,11 @@ class Button:
         self.rect.center = coord
         self.hover_rect = pygame.Rect(0, 0, 76, 36)
         self.hover_rect.center = coord
-        self.hover_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        self.hover_color = (
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255)
+        )
 
         self.text = font_m.render(text, False, "#145463")
         self.text_rect = self.text.get_rect(center=(self.rect.center))
@@ -51,5 +55,9 @@ class Button:
         if self.rect.collidepoint(Utils.norm_cursor_pos()):
             pygame.draw.rect(screen, self.hover_color, self.hover_rect, 2, 7)
         else:
-            self.hover_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+            self.hover_color = (
+                random.randint(0, 255),
+                random.randint(0, 255),
+                random.randint(0, 255)
+            )
         screen.blit(self.text, self.text_rect)

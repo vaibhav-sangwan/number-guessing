@@ -29,7 +29,7 @@ class FlipPageButton(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         self.image = pygame.image.load("./assets/page-flip-button.png")
-        self.rect = self.image.get_rect(center = (x, y))
+        self.rect = self.image.get_rect(center=(x, y))
 
         self.hover_rect = pygame.Rect(0, 0, 36, 36)
         self.hover_rect.center = (x, y)
@@ -38,7 +38,7 @@ class FlipPageButton(pygame.sprite.Sprite):
         if self.rect.collidepoint(Utils.norm_cursor_pos()):
             return True
         return False
-    
+
     def draw(self, screen):
         if self.rect.collidepoint(Utils.norm_cursor_pos()):
             pygame.draw.rect(screen, "#145463", self.hover_rect, 2, 7)

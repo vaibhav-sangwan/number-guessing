@@ -29,7 +29,7 @@ class HomeButton(pygame.sprite.Sprite):
     def __init__(self, x, y, gameStateManager):
         super().__init__()
         self.image = pygame.image.load("./assets/home-button.png")
-        self.rect = self.image.get_rect(center = (x, y))
+        self.rect = self.image.get_rect(center=(x, y))
         self.gameStateManager = gameStateManager
 
         self.hover_rect = pygame.Rect(0, 0, 36, 36)
@@ -40,7 +40,7 @@ class HomeButton(pygame.sprite.Sprite):
             self.gameStateManager.set_state("main-menu")
             return True
         return False
-    
+
     def draw(self, screen):
         if self.rect.collidepoint(Utils.norm_cursor_pos()):
             pygame.draw.rect(screen, "#145463", self.hover_rect, 2, 7)

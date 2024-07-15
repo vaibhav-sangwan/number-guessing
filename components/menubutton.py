@@ -25,22 +25,26 @@ from utils import Utils
 
 font_m = pygame.font.Font("./fonts/3Dventure.ttf", 16)
 
+
 class MenuButton(pygame.sprite.Sprite):
     def __init__(self, x, y, text, targetState):
         super().__init__()
         self.targetState = targetState
         self.image = pygame.image.load("./assets/button-bg.png")
-        self.rect = self.image.get_rect(center = (x, y))
+        self.rect = self.image.get_rect(center=(x, y))
         img_txt = font_m.render(text, False, "#145463")
-        img_txt_rect = img_txt.get_rect(center = (self.rect.width/2, self.rect.height/2))
+        img_txt_rect = img_txt.get_rect(center=(
+            self.rect.width / 2,
+            self.rect.height / 2
+        ))
         self.image.blit(img_txt, img_txt_rect)
         self.collide_rect = self.rect.copy()
-    
+
     def check_press(self):
         if self.collide_rect.collidepoint(Utils.norm_cursor_pos()):
             return True
         return False
-    
+
     def update(self):
         if self.collide_rect.collidepoint(Utils.norm_cursor_pos()):
             self.rect.centery = self.collide_rect.centery - 5

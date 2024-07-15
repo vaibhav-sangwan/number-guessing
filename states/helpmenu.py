@@ -62,6 +62,7 @@ Page 2 of 2
 
 pages = [classic_text, rev_text]
 
+
 class HelpMenu:
     def __init__(self, game):
         self.screen = game.screen
@@ -69,13 +70,15 @@ class HelpMenu:
         self.game = game
 
         self.bg = pygame.image.load("./assets/background.png")
-        self.bg_rect = self.bg.get_rect(center = (self.screen.get_width()/2, self.screen.get_height()/2))
+        self.bg_rect = self.bg.get_rect(center=(
+            self.screen.get_width() / 2, self.screen.get_height() / 2
+        ))
 
         self.help_bg = pygame.image.load("./assets/help-menu-bg.png")
         self.help_bg = pygame.transform.scale_by(self.help_bg, 8)
 
         self.title = pygame.image.load("./assets/help-menu-title.png")
-        self.title_rect = self.title.get_rect(center = (320, 80))
+        self.title_rect = self.title.get_rect(center=(320, 80))
 
         self.home_button = HomeButton(510, 280, self.gameStateManager)
         self.flip_button = FlipPageButton(470, 280)
@@ -85,14 +88,16 @@ class HelpMenu:
     def reset(self):
         self.page = 0
         self.refresh_page()
-    
+
     def refresh_page(self):
         self.curr_page = self.help_bg.copy()
         Utils.render_multiple_lines(
             pages[self.page], self.curr_page, 60, (60, 75), "#145463", font_s
         )
-        self.curr_page_rect = self.curr_page.get_rect(center = (self.screen.get_width()/2, self.screen.get_height()/2))
-    
+        self.curr_page_rect = self.curr_page.get_rect(center=(
+            self.screen.get_width() / 2, self.screen.get_height() / 2
+        ))
+
     def render(self):
         self.screen.blit(self.bg, self.bg_rect)
         self.screen.blit(self.curr_page, self.curr_page_rect)

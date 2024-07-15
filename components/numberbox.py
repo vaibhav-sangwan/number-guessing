@@ -48,10 +48,10 @@ class NumberBox:
         self.filled = False
         self.val = (int)(text)
         self.set_fill_color(target)
-        
+
         self.particles = None
         self.target = target
-    
+
     def set_fill_color(self, target):
         curr_dist = abs(self.val - target)
         max_dist = max(target - 0, 99 - target)
@@ -67,12 +67,18 @@ class NumberBox:
             final_pos = max_dist
 
         self.fill_color = [
-            self.interpolate(init_pos, final_pos, primary[i], secondary[i], curr_dist) for i in range(3)
+            self.interpolate(
+                init_pos,
+                final_pos,
+                primary[i],
+                secondary[i],
+                curr_dist
+            ) for i in range(3)
         ]
-    
+
     def interpolate(self, x1, x2, y1, y2, x):
-        m = (y2 - y1)/(x2 - x1)
-        y = m*(x-x1) + y1
+        m = (y2 - y1) / (x2 - x1)
+        y = m * (x - x1) + y1
         return y
 
     def fill(self):
@@ -90,7 +96,13 @@ class NumberBox:
         if not self.filled:
             pygame.draw.rect(screen, "#145463", self.rect, 1, 2)
             if self.rect.collidepoint(Utils.norm_cursor_pos()):
-                pygame.draw.rect(screen, self.hover_color, self.hover_rect, 2, 4)
+                pygame.draw.rect(
+                    screen,
+                    self.hover_color,
+                    self.hover_rect,
+                    2,
+                    4
+                )
             screen.blit(self.unfilled_text, self.text_rect)
         else:
             pygame.draw.rect(screen, self.fill_color, self.rect, 0, 2)

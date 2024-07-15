@@ -31,7 +31,7 @@ class Particles:
         self.color = color
         self.origin = pos
         self.add_particles(pos)
-    
+
     def add_particles(self, pos):
         num_particles = 40
         for i in range(num_particles):
@@ -41,7 +41,7 @@ class Particles:
             velocity = [speed * math.cos(theta), speed * math.sin(theta)]
             particle = [radius, [pos[0], pos[1]], velocity]
             self.particles.append(particle)
-    
+
     def emit(self, screen):
         self.delete_particles()
         for particle in self.particles:
@@ -53,9 +53,10 @@ class Particles:
             pygame.draw.circle(screen, self.color, particle[1], particle[0])
 
     def delete_particles(self):
-        particles_copy = [particle for particle in self.particles if particle[0] > 0]
+        particles_copy = [
+            particle for particle in self.particles if particle[0] > 0
+        ]
         self.particles = particles_copy
-    
+
     def done_emitting(self):
         return len(self.particles) == 0
-        

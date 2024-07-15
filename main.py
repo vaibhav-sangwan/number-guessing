@@ -73,16 +73,16 @@ class NumberGuessing:
         self.is_running = True
         while self.is_running:
             curr_state = self.states[self.gameStateManager.get_state()]
-            
+
             while Gtk.events_pending():
                 Gtk.main_iteration()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.is_running = False
                 curr_state.handle_event(event)
-            
+
             curr_state.run()
-            
+
             self.fill_bg()
             scaled_screen = pygame.transform.scale(
                 self.screen,
