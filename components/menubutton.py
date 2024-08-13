@@ -24,6 +24,7 @@ import pygame
 from utils import Utils
 
 font_m = pygame.font.Font("./fonts/3Dventure.ttf", 16)
+DARK_GREY = "#145463"
 
 
 class MenuButton(pygame.sprite.Sprite):
@@ -32,7 +33,7 @@ class MenuButton(pygame.sprite.Sprite):
         self.targetState = targetState
         self.image = pygame.image.load("./assets/button-bg.png")
         self.rect = self.image.get_rect(center=(x, y))
-        img_txt = font_m.render(text, False, "#145463")
+        img_txt = font_m.render(text, False, DARK_GREY)
         img_txt_rect = img_txt.get_rect(center=(
             self.rect.width / 2,
             self.rect.height / 2

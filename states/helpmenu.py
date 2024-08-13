@@ -61,7 +61,7 @@ Page 2 of 2
 """
 
 pages = [classic_text, rev_text]
-
+DARK_GREY = "#145463"
 
 class HelpMenu:
     def __init__(self, game):
@@ -92,7 +92,7 @@ class HelpMenu:
     def refresh_page(self):
         self.curr_page = self.help_bg.copy()
         Utils.render_multiple_lines(
-            pages[self.page], self.curr_page, 60, (60, 75), "#145463", font_s
+            pages[self.page], self.curr_page, 60, (60, 75), DARK_GREY, font_s
         )
         self.curr_page_rect = self.curr_page.get_rect(center=(
             self.screen.get_width() / 2, self.screen.get_height() / 2

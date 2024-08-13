@@ -23,6 +23,7 @@
 import pygame
 
 from utils import Utils
+DARK_GREY = "#145463"
 
 
 class HomeButton(pygame.sprite.Sprite):
@@ -43,5 +44,5 @@ class HomeButton(pygame.sprite.Sprite):
 
     def draw(self, screen):
         if self.rect.collidepoint(Utils.norm_cursor_pos()):
-            pygame.draw.rect(screen, "#145463", self.hover_rect, 2, 7)
+            pygame.draw.rect(screen, DARK_GREY, self.hover_rect, 2, 7)
         screen.blit(self.image, self.rect)

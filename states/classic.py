@@ -29,6 +29,7 @@ from components.homebutton import HomeButton
 from gettext import gettext as _
 
 font_m = pygame.font.Font("./fonts/3Dventure.ttf", 16)
+DARK_GREY = "#145463"
 
 
 class Classic:
@@ -87,7 +88,7 @@ class Classic:
         self.home_button.draw(self.screen)
 
         inc_text = font_m.render(
-            _("INCORRECT: ") + (str)(self.incorrect), False, "#145463"
+            _("INCORRECT: ") + (str)(self.incorrect), False, DARK_GREY
         )
         inc_text_rect = inc_text.get_rect(center=(320, 20))
         self.screen.blit(inc_text, inc_text_rect)

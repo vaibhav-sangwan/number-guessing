@@ -30,6 +30,7 @@ font_m = pygame.font.Font("./fonts/m04b.ttf", 8)
 far_color = (255, 0, 0)
 med_color = (255, 255, 0)
 close_color = (0, 150, 0)
+DARK_GREY = "#145463"
 
 
 class NumberBox:
@@ -39,9 +40,9 @@ class NumberBox:
 
         self.hover_rect = pygame.Rect(0, 0, 42, 20)
         self.hover_rect.center = coord
-        self.hover_color = "#145463"
+        self.hover_color = DARK_GREY
 
-        self.unfilled_text = font_m.render(text, False, "#145463")
+        self.unfilled_text = font_m.render(text, False, DARK_GREY)
         self.filled_text = font_m.render(text, False, "white")
         self.text_rect = self.filled_text.get_rect(center=(self.rect.center))
 
@@ -94,7 +95,7 @@ class NumberBox:
 
     def draw(self, screen):
         if not self.filled:
-            pygame.draw.rect(screen, "#145463", self.rect, 1, 2)
+            pygame.draw.rect(screen, DARK_GREY, self.rect, 1, 2)
             if self.rect.collidepoint(Utils.norm_cursor_pos()):
                 pygame.draw.rect(
                     screen,

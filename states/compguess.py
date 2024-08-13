@@ -27,6 +27,7 @@ from components.homebutton import HomeButton
 from gettext import gettext as _
 
 font_s = pygame.font.Font("./fonts/m04b.ttf", 8)
+DARK_GREY = "#145463"
 
 
 class CompGuess:
@@ -78,7 +79,7 @@ class CompGuess:
 
         if not self.started:
             start_text = font_s.render(
-                _("Think of a number between 0 to 99"), False, "#145463"
+                _("Think of a number between 0 to 99"), False, DARK_GREY
             )
             start_text_rect = start_text.get_rect(center=(320, 160))
 
@@ -89,7 +90,7 @@ class CompGuess:
         if self.reqBit >= 7:
             if self.res < 100 and self.res >= 0:
                 res_text = font_s.render(
-                    _("You thought of ") + (str)(self.res), False, "#145463"
+                    _("You thought of ") + (str)(self.res), False, DARK_GREY
                 )
             else:
                 res_text = font_s.render(
@@ -105,7 +106,7 @@ class CompGuess:
 
         else:
             for num in self.cells.keys():
-                text = font_s.render((str)(num), False, "#145463")
+                text = font_s.render((str)(num), False, DARK_GREY)
                 text_rect = text.get_rect(center=(
                     self.cells[num][0] * 64 + 32,
                     self.cells[num][1] * 26 + 13

@@ -39,6 +39,7 @@ from states.helpmenu import HelpMenu
 
 BASE_RES = (640, 360)
 FPS = 30
+AQUA = "#3cdafd"
 
 
 class NumberGuessing:
@@ -47,7 +48,7 @@ class NumberGuessing:
         self.clock = pygame.time.Clock()
 
     def fill_bg(self):
-        self.render_screen.fill("#3cdafd")
+        self.render_screen.fill(AQUA)
 
     def run(self):
         self.screen = pygame.Surface(BASE_RES)
